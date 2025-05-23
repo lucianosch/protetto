@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="author" content="Luciano Schiavone">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>{% block title %} titolo {% endblock %} - PRG02</title>
+</head>
+<body>
+
+{% block menu %}
+  <div class="w3-top">
+    <div class="w3-bar w3-indigo">
+      <a class="w3-bar-item w3-button" href="{{url_for('index')}}">
+        <i class="fa fa-home"></i>
+      </a>
+      <a class="w3-bar-item w3-button" href="{{url_for('page',num='1') }}">Pagina Uno</a>
+      <div class="w3-dropdown-hover">
+        <button class="w3-button">Pagina Due</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a class="w3-bar-item w3-button" href="{{url_for('page',num=2.1) }}">Pagina 2.1</a>
+          <a class="w3-bar-item w3-button" href="{{url_for('page',num=2.2) }}">Pagina 2.2</a>
+        </div>
+      </div>
+      <a class="w3-bar-item w3-button" href="{{url_for('page',num=3) }}">Pagina Tre</a>
+      <!--
+      <a class="w3-bar-item w3-button" href="{{url_for('page',num=4) }}">Pagina Quattro</a>
+      <a class="w3-bar-item w3-button" href="{{url_for('page',num=5) }}">Pagina Cinque</a>
+      -->
+      <div class="w3-dropdown-hover">
+        <button class="w3-button">Area riservata</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#" class="w3-bar-item w3-button">Link 1</a>
+          <a href="#" class="w3-bar-item w3-button">Link 2</a>
+          <a href="#" class="w3-bar-item w3-button">Link 3</a>
+        </div>
+      </div>
+
+      <!--a class="w3-bar-item w3-button" href="do.php?page=admin">Area riservata</a-->
+      <a class="w3-bar-item w3-button w3-right" href="{{ url_for('logout') }}">
+        <i class="fa fa-sign-out"></i>
+      </a>
+    </div>
+  </div>
+{% endblock %}
+  
+ 
+  <div class="w3-container w3-padding-top-64">
+    <!--img alt="Logo Inter" src="{{url_for('static',filename='immagini/inter_120.png')}}"-->
+    <div class="w3-center">
+      <img class="w3-center" alt="Tux everywhere" src="{{url_for('static',filename='immagini/tux.png')}}">
+    </div>
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  
+  </body>
+  </html>
